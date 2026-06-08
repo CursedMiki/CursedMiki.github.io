@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>СессияПро</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr"><div class="logo">Сессия<b>Про</b></div><div class="chip" id="chip">Главная</div></div>
+
+  <div class="screen on" id="s-home">
+    <div class="home-title">Подготовка к <span>сессии</span></div>
+    <div class="home-sub">480 официальных вопросов — выбери предмет</div>
+    <div class="subjects">
+      <div class="subj hist" onclick="goMode('hist')">
+        <span class="emoji">📜</span>
+        <h2>История Казахстана</h2>
+        <p>Официальный банк вопросов</p>
+        <span class="sbadge">180 вопросов</span>
+      </div>
+      <div class="subj info" onclick="goMode('info')">
+        <span class="emoji">💻</span>
+        <h2>Информатика</h2>
+        <p>MS Office, HTML, ИИ, системы счисления</p>
+        <span class="sbadge">120 вопросов</span>
+      </div>
+      <div class="subj rus" onclick="goMode('rus')">
+        <span class="emoji">📝</span>
+        <div class="stxt">
+          <h2>Русский язык</h2>
+          <p>Словообразование, синтаксис, фразеологизмы, стили речи, орфография, морфология</p>
+          <span class="sbadge">180 вопросов</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen" id="s-mode-hist">
+    <button class="back-btn" onclick="show('s-home','Главная')">← Назад</button>
+    <div class="mode-title">📜 История Казахстана</div><div class="mode-sub">177 вопросов</div>
+    <div class="modes">
+      <div class="mode hmode" onclick="launch('hist',20,'r')"><span class="mi">🎲</span><span class="mc">20</span><h3>Быстрый тест</h3><p>20 случайных</p></div>
+      <div class="mode hmode" onclick="launch('hist',40,'r')"><span class="mi">⚡</span><span class="mc">40</span><h3>Полутест</h3><p>40 случайных</p></div>
+      <div class="mode hmode" onclick="launch('hist',0,'all')"><span class="mi">🏆</span><span class="mc">180</span><h3>Полный экзамен</h3><p>Все вопросы</p></div>
+      <div class="mode hmode" onclick="launch('hist',0,'w')"><span class="mi">🔄</span><span class="mc" id="wb-h">0</span><h3>Ошибки</h3><p>Только неверные</p></div>
+    </div>
+    <div class="cust"><label>Своё количество</label><div class="cust-row">
+      <select id="cn-h"><option>10</option><option selected>20</option><option>30</option><option>50</option><option value="180">Все</option></select>
+      <button class="gbtn gh" onclick="launch('hist',+document.getElementById('cn-h').value,'r')">Начать →</button>
+    </div></div>
+  </div>
+
+  <div class="screen" id="s-mode-info">
+    <button class="back-btn" onclick="show('s-home','Главная')">← Назад</button>
+    <div class="mode-title">💻 Информатика</div><div class="mode-sub">108 вопросов</div>
+    <div class="modes">
+      <div class="mode imode" onclick="launch('info',20,'r')"><span class="mi">🎲</span><span class="mc">20</span><h3>Быстрый тест</h3><p>20 случайных</p></div>
+      <div class="mode imode" onclick="launch('info',40,'r')"><span class="mi">⚡</span><span class="mc">40</span><h3>Полутест</h3><p>40 случайных</p></div>
+      <div class="mode imode" onclick="launch('info',0,'all')"><span class="mi">🏆</span><span class="mc">120</span><h3>Полный экзамен</h3><p>Все вопросы</p></div>
+      <div class="mode imode" onclick="launch('info',0,'w')"><span class="mi">🔄</span><span class="mc" id="wb-i">0</span><h3>Ошибки</h3><p>Только неверные</p></div>
+    </div>
+    <div class="cust"><label>Своё количество</label><div class="cust-row">
+      <select id="cn-i"><option>10</option><option selected>20</option><option>30</option><option>50</option><option value="120">Все</option></select>
+      <button class="gbtn gi" onclick="launch('info',+document.getElementById('cn-i').value,'r')">Начать →</button>
+    </div></div>
+  </div>
+
+  <div class="screen" id="s-mode-rus">
+    <button class="back-btn" onclick="show('s-home','Главная')">← Назад</button>
+    <div class="mode-title">📝 Русский язык</div><div class="mode-sub">148 вопросов</div>
+    <div class="modes">
+      <div class="mode rmode" onclick="launch('rus',20,'r')"><span class="mi">🎲</span><span class="mc">20</span><h3>Быстрый тест</h3><p>20 случайных</p></div>
+      <div class="mode rmode" onclick="launch('rus',40,'r')"><span class="mi">⚡</span><span class="mc">40</span><h3>Полутест</h3><p>40 случайных</p></div>
+      <div class="mode rmode" onclick="launch('rus',0,'all')"><span class="mi">🏆</span><span class="mc">180</span><h3>Полный экзамен</h3><p>Все вопросы</p></div>
+      <div class="mode rmode" onclick="launch('rus',0,'w')"><span class="mi">🔄</span><span class="mc" id="wb-r">0</span><h3>Ошибки</h3><p>Только неверные</p></div>
+    </div>
+    <div class="cust"><label>Своё количество</label><div class="cust-row">
+      <select id="cn-r"><option>10</option><option selected>20</option><option>30</option><option>50</option><option value="180">Все</option></select>
+      <button class="gbtn gr" onclick="launch('rus',+document.getElementById('cn-r').value,'r')">Начать →</button>
+    </div></div>
+  </div>
+
+  <div class="screen" id="s-quiz">
+    <div class="qhdr"><div class="qsubj" id="qsl">История <b>КЗ</b></div><div class="pw"><div class="pb" id="pb"></div></div><div class="qnl" id="qnl">0/0</div></div>
+    <div class="qcard"><div class="qlbl" id="qn">ВОПРОС 1</div><div class="qtext" id="qt"></div></div>
+    <div class="opts" id="opts"></div>
+    <div class="qnav"><button class="xbtn" onclick="exitQ()">✕ Выйти</button><button class="nbtn hc" id="nb" onclick="nextQ()">Следующий →</button></div>
+  </div>
+
+  <div class="screen" id="s-res">
+    <div class="res-center">
+      <div class="rring">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="#1e2740" stroke-width="8"/>
+          <circle id="rc" cx="60" cy="60" r="52" fill="none" stroke="#34d399" stroke-width="8" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+        </svg>
+        <div class="rinn"><div class="rpct" id="rp">0%</div><div class="rlbl">результат</div></div>
+      </div>
+      <div class="rtitle" id="rtl">—</div><div class="rtext" id="rtx"></div>
+    </div>
+    <div class="stats">
+      <div class="stat green"><div class="sv" id="sok">0</div><div class="sk">Верно</div></div>
+      <div class="stat red"><div class="sv" id="sno">0</div><div class="sk">Неверно</div></div>
+      <div class="stat"><div class="sv" id="stot">0</div><div class="sk">Всего</div></div>
+    </div>
+    <div class="revtl">Разбор ошибок</div><div class="revl" id="rl"></div>
+    <div class="rbtns">
+      <button class="xbtn" style="flex:1" onclick="exitQ()">← Главная</button>
+      <button class="nbtn hc" id="rbtn" style="display:flex;flex:1" onclick="retryQ()">↺ Ещё раз</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+
+</body>
+</html>
